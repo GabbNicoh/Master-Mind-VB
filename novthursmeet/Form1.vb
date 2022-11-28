@@ -2,7 +2,6 @@
     Dim ctr As Integer = 0 ' checks how many text box has a number, if ctr % 4 == 0 then first line is removed, second line activated
     Dim A(3), num As Integer ' creates 4 blank arrays
     Dim correctcnt As Integer = 4
-    Dim lotnum() As Label = {Label8, Label9, Label10, Label11}
 
     ' TO FIX
     ' - scoring
@@ -100,6 +99,7 @@
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Randomize()
+        Dim lotnum() As Label = {Label8, Label9, Label10, Label11}
 
         For i = 0 To 3 ' counts to 4
             A(i) = -1
@@ -115,11 +115,9 @@
             A(j) = num
         Next j
 
-        Label8.Text = A(0)
-        Label9.Text = A(1)
-        Label10.Text = A(2)
-        Label11.Text = A(3)
-
+        For x = 0 To 3
+            lotnum(x).Text = A(x)
+        Next
         TextBox1.Enabled = True
         TextBox2.Enabled = True
         TextBox3.Enabled = True
