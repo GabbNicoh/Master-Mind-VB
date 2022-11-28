@@ -1,0 +1,16 @@
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.vbproj.AssemblyReference.cache
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.Form1.resources
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.vbproj.GenerateResource.cache
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.AssemblyInfoInputs.cache
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.AssemblyInfo.vb
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.vbproj.CoreCompileInputs.cache
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\bin\Debug\netcoreapp3.1\novthursmeet.exe
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\bin\Debug\netcoreapp3.1\novthursmeet.deps.json
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\bin\Debug\netcoreapp3.1\novthursmeet.runtimeconfig.json
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\bin\Debug\netcoreapp3.1\novthursmeet.runtimeconfig.dev.json
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\bin\Debug\netcoreapp3.1\novthursmeet.dll
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\bin\Debug\netcoreapp3.1\novthursmeet.pdb
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.dll
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.pdb
+C:\Users\sawcon\source\repos\novthursmeet\novthursmeet\obj\Debug\netcoreapp3.1\novthursmeet.genruntimeconfig.cache
