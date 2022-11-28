@@ -128,30 +128,13 @@
         textBoxLoop()
     End Sub
     Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox1.Enabled = False
-        TextBox2.Enabled = False
-        TextBox3.Enabled = False
-        TextBox4.Enabled = False
-        TextBox5.Enabled = False
-        TextBox6.Enabled = False
-        TextBox7.Enabled = False
-        TextBox8.Enabled = False
-        TextBox9.Enabled = False
-        TextBox10.Enabled = False
-        TextBox11.Enabled = False
-        TextBox12.Enabled = False
-        TextBox13.Enabled = False
-        TextBox14.Enabled = False
-        TextBox15.Enabled = False
-        TextBox16.Enabled = False
-        TextBox17.Enabled = False
-        TextBox18.Enabled = False
-        TextBox19.Enabled = False
-        TextBox20.Enabled = False
-        TextBox21.Enabled = False
-        TextBox22.Enabled = False
-        TextBox23.Enabled = False
-        TextBox24.Enabled = False
+        Dim loadbox() As TextBox = {TextBox1, TextBox2, TextBox3, TextBox4, TextBox5, TextBox6,
+            TextBox7, TextBox8, TextBox9, TextBox10, TextBox11, TextBox12, TextBox13, TextBox14,
+            TextBox15, TextBox16, TextBox17, TextBox18, TextBox19, TextBox20, TextBox21, TextBox22,
+            TextBox23, TextBox24}
+        For x = 0 To 23
+            loadbox(x).Enabled = False
+        Next
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
