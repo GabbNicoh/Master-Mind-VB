@@ -34,12 +34,15 @@
                     txtbox(row + 1, col).Enabled = True
                 Next
             ElseIf ctr = 8 Then
-                    row = 1
+                row = 1
                 txtbox(row, col).Enabled = False
                 If Not txtbox(row, col).Text = A(col) Then
                     correctcnt -= 1
                 End If
                 Label2.Text = correctcnt
+                For x = 0 To 3
+                    txtbox(row + 1, col).Enabled = True
+                Next
             ElseIf ctr = 12 Then
                 row = 2
                 txtbox(row, col).Enabled = False
@@ -47,6 +50,9 @@
                     correctcnt -= 1
                 End If
                 Label3.Text = correctcnt
+                For x = 0 To 3
+                    txtbox(row + 1, col).Enabled = True
+                Next
             ElseIf ctr = 16 Then
                 row = 3
                 txtbox(row, col).Enabled = False
@@ -54,6 +60,9 @@
                     correctcnt -= 1
                 End If
                 Label4.Text = correctcnt
+                For x = 0 To 3
+                    txtbox(row + 1, col).Enabled = True
+                Next
             ElseIf ctr = 20 Then
                 row = 4
                 txtbox(row, col).Enabled = False
@@ -61,6 +70,9 @@
                     correctcnt -= 1
                 End If
                 Label5.Text = correctcnt
+                For x = 0 To 3
+                    txtbox(row + 1, col).Enabled = True
+                Next
             ElseIf ctr = 24 Then
                 row = 5
                 txtbox(row, col).Enabled = False
@@ -69,14 +81,16 @@
                 End If
                 Label6.Text = correctcnt
             End If
-
-            If col = 3 Then
-                correctcnt = 4
-            End If
         Next col
-
+        If ctr > 4 And correctcnt = 4 Then
+            MessageBox.Show("CONGRATS YOU GUESSED IT!")
+            Me.Close()
+        End If
+        correctcnt = 4
         ' DEBUG
         Label7.Text = Str(ctr)
+
+
     End Sub
 
 
@@ -102,10 +116,38 @@
         Label10.Text = A(2)
         Label11.Text = A(3)
 
+        TextBox1.Enabled = True
+        TextBox2.Enabled = True
+        TextBox3.Enabled = True
+        TextBox4.Enabled = True
         Button5.Enabled = False
+        textBoxLoop()
     End Sub
     Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        TextBox1.Enabled = False
+        TextBox2.Enabled = False
+        TextBox3.Enabled = False
+        TextBox4.Enabled = False
+        TextBox5.Enabled = False
+        TextBox6.Enabled = False
+        TextBox7.Enabled = False
+        TextBox8.Enabled = False
+        TextBox9.Enabled = False
+        TextBox10.Enabled = False
+        TextBox11.Enabled = False
+        TextBox12.Enabled = False
+        TextBox13.Enabled = False
+        TextBox14.Enabled = False
+        TextBox15.Enabled = False
+        TextBox16.Enabled = False
+        TextBox17.Enabled = False
+        TextBox18.Enabled = False
+        TextBox19.Enabled = False
+        TextBox20.Enabled = False
+        TextBox21.Enabled = False
+        TextBox22.Enabled = False
+        TextBox23.Enabled = False
+        TextBox24.Enabled = False
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
