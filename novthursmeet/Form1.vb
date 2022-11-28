@@ -3,6 +3,14 @@
     Dim A(3), num As Integer ' creates 4 blank arrays
     Dim correctcnt As Integer = 4
     Dim lotnum() As Label = {Label8, Label9, Label10, Label11}
+
+    ' TO FIX
+    ' - scoring
+    ' - bug with multiple numbers
+    ' - Winning and losing
+    ' - polish
+    ' - design
+
     Public Sub textBoxLoop()
         Dim row As Integer
         Dim col As Integer
@@ -81,18 +89,14 @@
                 End If
                 Label6.Text = correctcnt
             End If
+
+            If col = 3 Then
+                correctcnt = 4
+            End If
         Next col
-        If ctr > 4 And correctcnt = 4 Then
-            MessageBox.Show("CONGRATS YOU GUESSED IT!")
-            Me.Close()
-        End If
-        correctcnt = 4
         ' DEBUG
         Label7.Text = Str(ctr)
-
-
     End Sub
-
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Randomize()
@@ -265,7 +269,6 @@
         ctr += 1
         textBoxLoop()
     End Sub
-
 
     Private Sub TextBox24_TextChanged(sender As Object, e As EventArgs) Handles TextBox24.TextChanged
         ctr += 1
