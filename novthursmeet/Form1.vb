@@ -9,7 +9,7 @@
                                     {TextBox13, TextBox14, TextBox15, TextBox16},
                                     {TextBox17, TextBox18, TextBox19, TextBox20},
                                     {TextBox21, TextBox22, TextBox23, TextBox24}}
-        For col = 0 To 3
+        For col = 0 To 3 tite
             If ctr = 4 Then
                 row = 0
                 txtbox(row, col).Enabled = False
