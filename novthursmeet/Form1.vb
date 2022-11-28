@@ -1,33 +1,65 @@
 ﻿Public Class Form1
     Dim ctr As Integer = 0 ' checks how many text box has a number, if ctr % 4 == 0 then first line is removed, second line activated
-    Public Sub textBoxLoop()
-        Dim row As Integer
-        Dim col As Integer
-        Dim txtbox(,) As TextBox = {{TextBox1, TextBox2, TextBox3, TextBox4},
+    Dim lotnum() As Label = {Label8, Label9, Label10, Label11}
+    Dim A(3), num As Integer ' creates 4 blank arrays
+    Dim correctcnt As Integer = 4
+    Dim txtbox(,) As TextBox = {{TextBox1, TextBox2, TextBox3, TextBox4},
                                     {TextBox5, TextBox6, TextBox7, TextBox8},
                                     {TextBox9, TextBox10, TextBox11, TextBox12},
                                     {TextBox13, TextBox14, TextBox15, TextBox16},
                                     {TextBox17, TextBox18, TextBox19, TextBox20},
                                     {TextBox21, TextBox22, TextBox23, TextBox24}}
-        For col = 0 To 3 tite
+    Public Sub textBoxLoop()
+        Dim row As Integer
+        Dim col As Integer
+
+        For col = 0 To 3
             If ctr = 4 Then
                 row = 0
                 txtbox(row, col).Enabled = False
+                If Not txtbox(row, col).Text = A(col) Then
+                    correctcnt -= 1
+                End If
+                Label1.Text = correctcnt
             ElseIf ctr = 8 Then
                 row = 1
                 txtbox(row, col).Enabled = False
+                If Not txtbox(row, col).Text = A(col) Then
+                    correctcnt -= 1
+                End If
+                Label2.Text = correctcnt
             ElseIf ctr = 12 Then
                 row = 2
                 txtbox(row, col).Enabled = False
+                If Not txtbox(row, col).Text = A(col) Then
+                    correctcnt -= 1
+                End If
+                Label3.Text = correctcnt
             ElseIf ctr = 16 Then
                 row = 3
                 txtbox(row, col).Enabled = False
+                If Not txtbox(row, col).Text = A(col) Then
+                    correctcnt -= 1
+                End If
+                Label4.Text = correctcnt
             ElseIf ctr = 20 Then
                 row = 4
                 txtbox(row, col).Enabled = False
+                If Not txtbox(row, col).Text = A(col) Then
+                    correctcnt -= 1
+                End If
+                Label5.Text = correctcnt
             ElseIf ctr = 24 Then
                 row = 5
                 txtbox(row, col).Enabled = False
+                If Not txtbox(row, col).Text = A(col) Then
+                    correctcnt -= 1
+                End If
+                Label6.Text = correctcnt
+            End If
+
+            If col = 3 Then
+                correctcnt = 4
             End If
         Next col
 
@@ -35,11 +67,9 @@
         Label7.Text = Str(ctr)
     End Sub
 
-    Dim lotnum() As Label = {Label8, Label9, Label10, Label11}
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Randomize()
-        Dim A(3), num As Integer ' creates 4 blank arrays
 
         For i = 0 To 3 ' counts to 4
             A(i) = -1
@@ -54,10 +84,23 @@
             End If
             A(j) = num
         Next j
+
         Label8.Text = A(0)
         Label9.Text = A(1)
         Label10.Text = A(2)
         Label11.Text = A(3)
+
+        Button5.Enabled = False
+    End Sub
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' disables all except active row
+        If ctr = 0 Then
+            For x = 0 To 5
+                For y = 0 To 3
+                    txtbox(x, y).Enabled = False
+                Next
+            Next
+        End If
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -175,6 +218,7 @@
         ctr += 1
         textBoxLoop()
     End Sub
+
 
     Private Sub TextBox24_TextChanged(sender As Object, e As EventArgs) Handles TextBox24.TextChanged
         ctr += 1
