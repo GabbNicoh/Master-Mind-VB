@@ -6,7 +6,7 @@
 ' - [] polish
 ' - [] design
 Public Class Form1
-    Dim ctr As Integer = 0 ' checks how many text box has a number, if ctr % 4 == 0 then first line is removed, second line activated
+    Dim ctr As Integer = 0
     Dim A(3), num As Integer ' creates 4 blank arrays
     Dim correctcnt As Integer = 0
     Dim endReached As Boolean = False
@@ -137,6 +137,7 @@ Public Class Form1
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Randomize()
         Dim lotnum() As Label = {Label8, Label9, Label10, Label11}
+        Dim txtBox() As TextBox = {TextBox1, TextBox2, TextBox3, TextBox4}
         endReached = False
         Label12.Text = ""
         correctcnt = 0
@@ -159,10 +160,10 @@ Public Class Form1
             lotnum(x).Text = A(x)
         Next
 
-        TextBox1.Enabled = True
-        TextBox2.Enabled = True
-        TextBox3.Enabled = True
-        TextBox4.Enabled = True
+        For x = 0 To 3 ' enables first row
+            txtBox(x).Enabled = True
+        Next
+
         Button5.Enabled = False
         Button5.Visible = False
         textBoxLoop()
