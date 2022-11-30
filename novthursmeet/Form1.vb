@@ -298,5 +298,4 @@ Public Class Form1
         ctr += 1
         textBoxLoop()
     End Sub
-
 End Class
