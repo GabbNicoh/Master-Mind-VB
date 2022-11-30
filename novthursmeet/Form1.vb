@@ -16,9 +16,12 @@ Public Class Form1
             TextBox15, TextBox16, TextBox17, TextBox18, TextBox19, TextBox20, TextBox21, TextBox22,
             TextBox23, TextBox24}
         Dim score() As Label = {Label1, Label2, Label3, Label4, Label5, Label6}
-        ctr = 0
+        Dim shownum() As Label = {Label8, Label9, Label10, Label11}
 
+        ctr = 0
         Button5.Enabled = True
+        Button5.Visible = True
+
         For x = 0 To 5
             score(x).Text = "0"
         Next
@@ -28,10 +31,14 @@ Public Class Form1
             loadbox(x).Text = ""
         Next
 
+        For x = 0 To 3 ' sets numbers in in display
+            shownum(x).Text = A(x)
+            shownum(x).ForeColor = Color.Red
+        Next
+
     End Sub
 
     Public Sub textBoxLoop()
-        Dim row As Integer
         Dim col As Integer
         Dim txtbox(,) As TextBox = {{TextBox1, TextBox2, TextBox3, TextBox4},
                                     {TextBox5, TextBox6, TextBox7, TextBox8},
@@ -48,62 +55,56 @@ Public Class Form1
                 Next
             Next
         End If
-
+        ' main game loop
         For col = 0 To 3
             If ctr = 4 Then
-                row = 0
-                txtbox(row, col).Enabled = False
-                If txtbox(row, col).Text = A(col) Then
+                txtbox(0, col).Enabled = False ' disables current row
+                If txtbox(0, col).Text = A(col) Then
                     correctcnt += 1
                 End If
-                Label1.Text = correctcnt
-                For x = 0 To 3
-                    txtbox(row + 1, col).Enabled = True
+                Label1.Text = correctcnt ' shows number of correct guesses
+                For x = 0 To 3 ' enables next row of textbox
+                    txtbox(0 + 1, col).Enabled = True
                 Next
             ElseIf ctr = 8 Then
-                row = 1
-                txtbox(row, col).Enabled = False
-                If txtbox(row, col).Text = A(col) Then
+                txtbox(1, col).Enabled = False
+                If txtbox(1, col).Text = A(col) Then
                     correctcnt += 1
                 End If
                 Label2.Text = correctcnt
                 For x = 0 To 3
-                    txtbox(row + 1, col).Enabled = True
+                    txtbox(1 + 1, col).Enabled = True
                 Next
             ElseIf ctr = 12 Then
-                row = 2
-                txtbox(row, col).Enabled = False
-                If txtbox(row, col).Text = A(col) Then
+                txtbox(2, col).Enabled = False
+                If txtbox(2, col).Text = A(col) Then
                     correctcnt += 1
                 End If
                 Label3.Text = correctcnt
                 For x = 0 To 3
-                    txtbox(row + 1, col).Enabled = True
+                    txtbox(2 + 1, col).Enabled = True
                 Next
             ElseIf ctr = 16 Then
-                row = 3
-                txtbox(row, col).Enabled = False
-                If txtbox(row, col).Text = A(col) Then
+                txtbox(3, col).Enabled = False
+                If txtbox(3, col).Text = A(col) Then
                     correctcnt += 1
                 End If
                 Label4.Text = correctcnt
                 For x = 0 To 3
-                    txtbox(row + 1, col).Enabled = True
+                    txtbox(3 + 1, col).Enabled = True
                 Next
             ElseIf ctr = 20 Then
-                row = 4
-                txtbox(row, col).Enabled = False
-                If txtbox(row, col).Text = A(col) Then
+                txtbox(4, col).Enabled = False
+                If txtbox(4, col).Text = A(col) Then
                     correctcnt += 1
                 End If
                 Label5.Text = correctcnt
                 For x = 0 To 3
-                    txtbox(row + 1, col).Enabled = True
+                    txtbox(4 + 1, col).Enabled = True
                 Next
             ElseIf ctr = 24 Then
-                row = 5
-                txtbox(row, col).Enabled = False
-                If txtbox(row, col).Text = A(col) Then
+                txtbox(5, col).Enabled = False
+                If txtbox(5, col).Text = A(col) Then
                     correctcnt += 1
                 End If
                 Label6.Text = correctcnt
@@ -113,17 +114,16 @@ Public Class Form1
                 correctcnt = 0
             End If
         Next col
-
+        ' checks if game reached the end
         If ctr = 24 And correctcnt < 4 Then
             endReached = True
         End If
-
         If endReached = True Then
             Label12.Text = "YOU LOSE"
             Label12.ForeColor = Color.Red
             reset()
         End If
-
+        ' win condition
         If correctcnt = 4 Then
             Label12.Text = "YOU FOUND IT"
             Label12.ForeColor = Color.Green
@@ -145,7 +145,7 @@ Public Class Form1
             A(i) = -1
         Next i
 
-        For j = 0 To 3
+        For j = 0 To 3 ' 4 random unique numbers
             If A(j) = -1 Then
                 num = Int(Rnd() * 6) + 1
                 While A.Contains(num)
@@ -155,7 +155,7 @@ Public Class Form1
             A(j) = num
         Next j
 
-        For x = 0 To 3
+        For x = 0 To 3 ' sets numbers in in display
             lotnum(x).Text = A(x)
         Next
 
@@ -164,6 +164,7 @@ Public Class Form1
         TextBox3.Enabled = True
         TextBox4.Enabled = True
         Button5.Enabled = False
+        Button5.Visible = False
         textBoxLoop()
     End Sub
     Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -178,6 +179,9 @@ Public Class Form1
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         ctr += 1
         textBoxLoop()
+        ' limit to one character only
+        ' ??? Possible fix: disable if a number is entered?
+        TextBox1.Enabled = False
     End Sub
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
